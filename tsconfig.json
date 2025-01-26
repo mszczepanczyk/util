@@ -3,6 +3,7 @@
     "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "declarationMap": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
     "outDir": "dist",
