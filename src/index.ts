@@ -1,3 +1,4 @@
+export * from './types';
 export * from './zod';
 
 export function capitalize(str: string, locale = navigator.language): string {
