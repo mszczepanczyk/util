@@ -12,7 +12,9 @@
     "/dist"
   ],
   "scripts": {
-    "build": "npx tsc",
+    "build": "npm run build:cfg && npm run build:lib",
+    "build:cfg": "mkdir -p dist && rm -rf dist/cfg && cp -r cfg dist/",
+    "build:lib": "npx tsc",
     "clean": "rm -rf build dist",
     "dev": "npx tsc --watch",
     "format": "eslint . --fix",
