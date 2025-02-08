@@ -5,6 +5,14 @@ import z from 'zod';
 export type JSONPrimitive = string | number | boolean | JSONObject | null | undefined;
 export type JSONObject = { [key: string]: JSONPrimitive } | JSONObject[];
 
+// https://github.com/colinhacks/zod?tab=readme-ov-file#json-type
+export const ZodJSONPrimitive = z.union([z.string(), z.number(), z.boolean(), z.null(), z.undefined()]);
+export type ZodJSONPrimitive = z.infer<typeof ZodJSONPrimitive>;
+export type ZodJSON = ZodJSONPrimitive | { [key: string]: ZodJSON } | ZodJSON[];
+export const ZodJSON: z.ZodType<ZodJSON> = z.lazy(() =>
+  z.union([ZodJSONPrimitive, z.record(ZodJSON), z.array(ZodJSON)]),
+);
+
 // https://github.com/colinhacks/zod/discussions/2215#discussioncomment-5356286
 export const StringifiedJSON = z.string().transform((str, ctx): z.ZodType<JSONObject> => {
   try {
