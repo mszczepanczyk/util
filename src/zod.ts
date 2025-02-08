@@ -12,6 +12,8 @@ export type ZodJSON = ZodJSONPrimitive | { [key: string]: ZodJSON } | ZodJSON[];
 export const ZodJSON: z.ZodType<ZodJSON> = z.lazy(() =>
   z.union([ZodJSONPrimitive, z.record(ZodJSON), z.array(ZodJSON)]),
 );
+export const ZodJSONObject = z.record(ZodJSON);
+export type ZodJSONObject = z.infer<typeof ZodJSONObject>;
 
 // https://github.com/colinhacks/zod/discussions/2215#discussioncomment-5356286
 export const StringifiedJSON = z.string().transform((str, ctx): z.ZodType<JSONObject> => {
