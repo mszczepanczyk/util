@@ -4,7 +4,7 @@
   "author": "Mariusz Szczepańczyk <m@mariusz.sh>",
   "homepage": "https://github.com/mszczepanczyk/util",
   "repository": "https://github.com/mszczepanczyk/util.git",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
